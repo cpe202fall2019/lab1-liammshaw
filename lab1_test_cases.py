@@ -31,7 +31,7 @@ class TestLab1(unittest.TestCase):
         tlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 301]
         self.assertEqual(max_list_iter(tlist), 301)
 
-#testing reverse function
+# testing reverse function
 
     def test_reverse_rec_01(self):
         """test the basics 01"""
@@ -53,6 +53,7 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(tlist)
 
+# Testing binary search
     def test_bin_search(self):
         list_val =[0, 1, 2, 3, 4, 7, 8, 9, 10]
         low = 0
