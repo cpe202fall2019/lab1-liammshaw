@@ -18,8 +18,8 @@ class TestLab1(unittest.TestCase):
 
     def test_list_empty(self):
         """tests to see what happens if list is empty"""
-        tlist =[]
-        self.assertEqual(max_list_iter(tlist),None)
+        tlist = []
+        self.assertEqual(max_list_iter(tlist), None)
 
     def test_max_first(self):
         """tests to see what happens when the largest number is first"""
@@ -45,7 +45,7 @@ class TestLab1(unittest.TestCase):
     def test_empty_reverse_rec(self):
         """Tests empty list"""
         tlist = []
-        self.assertEqual(reverse_rec(tlist),[])
+        self.assertEqual(reverse_rec(tlist), [])
 
     def test_reverse_value_error_rec(self):
         """tests if list is none"""
@@ -70,7 +70,7 @@ class TestLab1(unittest.TestCase):
         list_val =[0, 1, 2, 3, 4, 7, 8, 9, 10]
         low = 0
         high = len(list_val)-1
-        self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4)
+        self.assertEqual(bin_search(7, 0, len(list_val)-1, list_val), 5)
 
     def test_bin_search_no_numbers(self):
         list_val = []
@@ -83,6 +83,31 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val) - 1
         self.assertEqual(bin_search(8, 0, len(list_val) - 1, list_val), None)
+
+    def test_bin_search_list_one_number(self):
+        list_val = [10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val),0)
+
+    def test_bin_search_target_end(self):
+        list_val = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val),9)
+
+    def test_bin_search_target_start(self):
+        list_val = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(1, 0, len(list_val)-1, list_val),0)
+
+    def test_bin_search_target_variable(self):
+        list_val = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
+        val = 8
+        self.assertEqual(bin_search(val, 0, len(list_val)-1, list_val), 7)
 
 
 if __name__ == "__main__":

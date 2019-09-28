@@ -19,6 +19,8 @@ def reverse_rec(int_list):  # must use recursion
    If list is None, raises ValueError"""
     if int_list == None:
         raise ValueError("List is None")
+    if len(int_list) == 0:
+        return []
     else:
         if len(int_list) == 0:
             return int_list
@@ -34,10 +36,12 @@ def bin_search(target, low, high, int_list):  # must use recursion
         return None
     else:
         mid = ((high + low) // 2)
-        if (mid == high and int_list[mid] != target) or (mid == low and int_list[mid] != target):
-            return None
         if target == int_list[mid]:
             return mid
+        elif high == low or high - 1 == low:
+            if int_list[high] == target:
+                return high
+            return None
         elif int_list[mid] > target:
             return bin_search(target, low, mid - 1, int_list)
         elif int_list[mid] < target:
